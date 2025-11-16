@@ -12,4 +12,3 @@ import { OAuthProvider } from './entities/oauth-provider.entity';
   exports: [UsersService],
 })
 export class UsersModule {}
-

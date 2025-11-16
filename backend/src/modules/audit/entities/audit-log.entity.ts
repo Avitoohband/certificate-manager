@@ -69,4 +69,3 @@ export class AuditLog {
   @Index()
   createdAt: Date;
 }
-

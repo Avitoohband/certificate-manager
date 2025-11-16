@@ -43,4 +43,3 @@ export class OAuthProvider {
   @CreateDateColumn()
   createdAt: Date;
 }
-

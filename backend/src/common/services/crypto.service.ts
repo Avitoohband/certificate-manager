@@ -47,11 +47,7 @@ export class CryptoService {
    * Decrypt data using AES-256-GCM
    */
   decrypt(encrypted: string, iv: string, tag: string): string {
-    const decipher = createDecipheriv(
-      this.algorithm,
-      this.masterKey,
-      Buffer.from(iv, 'base64'),
-    );
+    const decipher = createDecipheriv(this.algorithm, this.masterKey, Buffer.from(iv, 'base64'));
 
     decipher.setAuthTag(Buffer.from(tag, 'base64'));
 
@@ -61,4 +57,3 @@ export class CryptoService {
     return decrypted;
   }
 }
-

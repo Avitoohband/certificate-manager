@@ -117,4 +117,3 @@ export class Certificate {
     return this.validTo < new Date();
   }
 }
-

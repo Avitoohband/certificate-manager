@@ -10,9 +10,6 @@ import { User, UserRole } from '../users/entities/user.entity';
 
 describe('AuthService', () => {
   let service: AuthService;
-  let usersService: UsersService;
-  let jwtService: JwtService;
-  let auditService: AuditService;
 
   const mockUser: User = {
     id: '123',
@@ -174,7 +171,9 @@ describe('AuthService', () => {
       mockUsersService.findById.mockResolvedValue(userWithRefreshToken);
       jest.spyOn(bcrypt, 'compare').mockImplementation(() => Promise.resolve(true));
       jest.spyOn(bcrypt, 'hash').mockImplementation(() => Promise.resolve('new-hashed-token'));
-      mockJwtService.sign.mockReturnValueOnce('new-access-token').mockReturnValueOnce('new-refresh-token');
+      mockJwtService.sign
+        .mockReturnValueOnce('new-access-token')
+        .mockReturnValueOnce('new-refresh-token');
 
       const result = await service.refreshTokens('123', 'refresh-token');
 
@@ -210,4 +209,3 @@ describe('AuthService', () => {
     });
   });
 });
-

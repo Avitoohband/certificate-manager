@@ -107,7 +107,7 @@ export const certificatesApi = {
     return data;
   },
 
-  update: async (id: string, metadata: Record<string, any>) => {
+  update: async (id: string, metadata: Record<string, unknown>) => {
     const { data } = await api.put<Certificate>(`/certificates/${id}`, {
       metadata,
     });

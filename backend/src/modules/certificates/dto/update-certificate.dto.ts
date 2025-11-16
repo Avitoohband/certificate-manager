@@ -5,4 +5,3 @@ export class UpdateCertificateDto {
   @IsObject()
   metadata?: Record<string, any>;
 }
-

@@ -23,4 +23,3 @@ import { NotificationsModule } from '../notifications/notifications.module';
   exports: [CertificatesService],
 })
 export class CertificatesModule {}
-

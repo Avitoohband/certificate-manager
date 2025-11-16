@@ -36,11 +36,7 @@ export class AuditController {
   }
 
   @Get('resource')
-  async findByResource(
-    @Query('type') resourceType: string,
-    @Query('id') resourceId: string,
-  ) {
+  async findByResource(@Query('type') resourceType: string, @Query('id') resourceId: string) {
     return this.auditService.findByResource(resourceType, resourceId);
   }
 }
-

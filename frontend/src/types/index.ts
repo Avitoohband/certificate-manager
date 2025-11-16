@@ -42,7 +42,7 @@ export interface Certificate {
   validTo: string;
   revokedAt?: string;
   revocationReason?: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
   createdAt: string;
   updatedAt: string;
   owner?: User;
@@ -58,7 +58,7 @@ export interface CreateCertificateDto {
   subjectAltNames?: string[];
   type: CertificateType;
   validityDays?: number;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }
 
 export interface AuditLog {
@@ -69,7 +69,7 @@ export interface AuditLog {
   resourceId?: string;
   ipAddress?: string;
   userAgent?: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
   success: boolean;
   createdAt: string;
 }

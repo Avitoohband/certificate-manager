@@ -215,4 +215,3 @@ describe('CertificatesController (e2e)', () => {
     });
   });
 });
-

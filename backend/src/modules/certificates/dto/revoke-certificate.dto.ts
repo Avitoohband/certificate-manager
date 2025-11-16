@@ -5,4 +5,3 @@ export class RevokeCertificateDto {
   @MaxLength(500)
   reason: string;
 }
-

@@ -94,7 +94,17 @@ export default function DashboardPage() {
   );
 }
 
-function StatCard({ title, value, icon, color }: any) {
+function StatCard({
+  title,
+  value,
+  icon,
+  color,
+}: {
+  title: string;
+  value: number;
+  icon: React.ReactNode;
+  color: 'blue' | 'green' | 'yellow' | 'red';
+}) {
   const colorClasses = {
     blue: 'bg-blue-50',
     green: 'bg-green-50',

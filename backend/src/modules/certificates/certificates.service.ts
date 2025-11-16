@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, LessThan, MoreThan } from 'typeorm';
+import { Repository, LessThan } from 'typeorm';
 import { Certificate, CertificateStatus } from './entities/certificate.entity';
 import { CryptoService } from '../../common/services/crypto.service';
 import { CertificateCryptoService } from '../../common/services/certificate-crypto.service';
@@ -153,12 +153,7 @@ export class CertificatesService {
     return updated;
   }
 
-  async revoke(
-    id: string,
-    userId: string,
-    userRole: string,
-    reason: string,
-  ): Promise<Certificate> {
+  async revoke(id: string, userId: string, userRole: string, reason: string): Promise<Certificate> {
     const certificate = await this.findOne(id, userId, userRole);
 
     certificate.status = CertificateStatus.REVOKED;
@@ -281,4 +276,3 @@ export class CertificatesService {
     return result.affected || 0;
   }
 }
-

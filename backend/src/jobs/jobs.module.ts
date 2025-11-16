@@ -18,4 +18,3 @@ import { User } from '../modules/users/entities/user.entity';
   providers: [CertificateExpirationProcessor],
 })
 export class JobsModule {}
-

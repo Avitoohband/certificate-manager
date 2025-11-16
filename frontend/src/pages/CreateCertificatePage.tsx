@@ -26,8 +26,9 @@ export default function CreateCertificatePage() {
     onSuccess: (data) => {
       navigate(`/certificates/${data.id}`);
     },
-    onError: (err: any) => {
-      setError(err.response?.data?.message || 'Failed to create certificate');
+    onError: (err: unknown) => {
+      const error = err as { response?: { data?: { message?: string } } };
+      setError(error.response?.data?.message || 'Failed to create certificate');
     },
   });
 

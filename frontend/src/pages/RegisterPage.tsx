@@ -21,8 +21,9 @@ export default function RegisterPage() {
     try {
       await register({ email, password, firstName, lastName });
       navigate('/');
-    } catch (err: any) {
-      setError(err.response?.data?.message || 'Registration failed');
+    } catch (err: unknown) {
+      const error = err as { response?: { data?: { message?: string } } };
+      setError(error.response?.data?.message || 'Registration failed');
     } finally {
       setLoading(false);
     }

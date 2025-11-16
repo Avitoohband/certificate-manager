@@ -112,9 +112,10 @@ export class CertificateCryptoService {
   /**
    * Generate cryptographic key pair
    */
-  private generateKeyPair(
-    type: CertificateType,
-  ): { publicKey: forge.pki.rsa.PublicKey; privateKey: forge.pki.rsa.PrivateKey } {
+  private generateKeyPair(type: CertificateType): {
+    publicKey: forge.pki.rsa.PublicKey;
+    privateKey: forge.pki.rsa.PrivateKey;
+  } {
     switch (type) {
       case CertificateType.RSA_2048:
         return forge.pki.rsa.generateKeyPair({ bits: 2048, workers: -1 });
@@ -138,4 +139,3 @@ export class CertificateCryptoService {
     return Math.floor(Math.random() * 1000000000000000).toString(16);
   }
 }
-

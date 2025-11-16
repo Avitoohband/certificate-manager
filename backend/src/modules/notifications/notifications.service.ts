@@ -39,7 +39,9 @@ export class NotificationsService {
         `,
       });
 
-      this.logger.log(`Expiration warning sent to ${email} for certificate ${certificateCommonName}`);
+      this.logger.log(
+        `Expiration warning sent to ${email} for certificate ${certificateCommonName}`,
+      );
     } catch (error) {
       this.logger.error(`Failed to send email to ${email}:`, error);
     }
@@ -69,4 +71,3 @@ export class NotificationsService {
     }
   }
 }
-

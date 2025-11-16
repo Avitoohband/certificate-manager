@@ -64,4 +64,3 @@ import { JobsModule } from './jobs/jobs.module';
   ],
 })
 export class AppModule {}
-

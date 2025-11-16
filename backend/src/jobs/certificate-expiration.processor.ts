@@ -1,6 +1,5 @@
 import { Process, Processor } from '@nestjs/bull';
 import { Logger } from '@nestjs/common';
-import { Job } from 'bull';
 import { CertificatesService } from '../modules/certificates/certificates.service';
 import { NotificationsService } from '../modules/notifications/notifications.service';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -23,7 +22,7 @@ export class CertificateExpirationProcessor {
    * Runs daily at midnight (scheduled by cron in module)
    */
   @Process('check-expiration')
-  async handleExpirationCheck(job: Job) {
+  async handleExpirationCheck() {
     this.logger.log('Starting certificate expiration check...');
 
     try {
@@ -44,9 +43,7 @@ export class CertificateExpirationProcessor {
       for (const cert of expiringSoon) {
         const user = await this.usersRepository.findOne({ where: { id: cert.ownerId } });
         if (user && user.email) {
-          const daysLeft = Math.ceil(
-            (cert.validTo.getTime() - Date.now()) / (1000 * 60 * 60 * 24),
-          );
+          const daysLeft = Math.ceil((cert.validTo.getTime() - Date.now()) / (1000 * 60 * 60 * 24));
 
           await this.notificationsService.sendExpirationWarning(
             user.email,
@@ -71,4 +68,3 @@ export class CertificateExpirationProcessor {
     }
   }
 }
-

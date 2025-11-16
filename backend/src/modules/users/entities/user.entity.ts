@@ -64,4 +64,3 @@ export class User {
   @OneToMany(() => AuditLog, (log) => log.user)
   auditLogs: AuditLog[];
 }
-

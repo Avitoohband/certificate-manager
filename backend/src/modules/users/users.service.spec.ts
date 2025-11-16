@@ -1,6 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { ConflictException, NotFoundException } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User, UserRole } from './entities/user.entity';
@@ -8,8 +7,6 @@ import { OAuthProvider } from './entities/oauth-provider.entity';
 
 describe('UsersService', () => {
   let service: UsersService;
-  let usersRepository: Repository<User>;
-  let oauthRepository: Repository<OAuthProvider>;
 
   const mockUser: User = {
     id: '123',
@@ -19,8 +16,8 @@ describe('UsersService', () => {
     lastName: 'Doe',
     role: UserRole.USER,
     isActive: true,
-    refreshToken: null,
-    lastLoginAt: null,
+    refreshToken: null as any,
+    lastLoginAt: null as any,
     createdAt: new Date(),
     updatedAt: new Date(),
     certificates: [],
@@ -52,8 +49,6 @@ describe('UsersService', () => {
     }).compile();
 
     service = module.get<UsersService>(UsersService);
-    usersRepository = module.get<Repository<User>>(getRepositoryToken(User));
-    oauthRepository = module.get<Repository<OAuthProvider>>(getRepositoryToken(OAuthProvider));
   });
 
   afterEach(() => {
@@ -192,4 +187,3 @@ describe('UsersService', () => {
     });
   });
 });
-

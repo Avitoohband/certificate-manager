@@ -59,4 +59,3 @@ export class CreateCertificateDto {
   @IsObject()
   metadata?: Record<string, any>;
 }
-

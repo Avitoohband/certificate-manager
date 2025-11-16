@@ -1,0 +1,39 @@
+{
+  "name": "certificate-manager",
+  "version": "1.0.0",
+  "description": "Certificate Manager Application - Full Stack",
+  "private": true,
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "dev:backend": "cd backend && npm run start:dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "build": "npm run build:backend && npm run build:frontend",
+    "test:backend": "cd backend && npm run test",
+    "test:e2e": "cd backend && npm run test:e2e",
+    "test": "npm run test:backend",
+    "lint:backend": "cd backend && npm run lint",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint": "npm run lint:backend && npm run lint:frontend",
+    "migration:generate": "cd backend && npm run migration:generate",
+    "migration:run": "cd backend && npm run migration:run",
+    "migration:revert": "cd backend && npm run migration:revert"
+  },
+  "keywords": [
+    "certificate",
+    "management",
+    "nestjs",
+    "react",
+    "x509",
+    "ssl",
+    "tls"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+

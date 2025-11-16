@@ -38,4 +38,3 @@ import { GithubStrategy } from './strategies/github.strategy';
   exports: [AuthService],
 })
 export class AuthModule {}
-
